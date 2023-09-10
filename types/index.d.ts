@@ -37,7 +37,7 @@ export type AppContainerProps = JSXAttributes;
 
 export type HeaderProps = JSXAttributes;
 export type HeaderBrandProps = JSXAttributes;
-export type HeaderBrandLabelProps = JSXAttributes & {
+export type HeaderBrandLabelProps = JSXAttributes<HTMLSpanElement> & {
   label: string;
 };
 

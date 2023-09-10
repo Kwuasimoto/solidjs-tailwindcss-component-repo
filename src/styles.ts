@@ -29,10 +29,9 @@ const [styles, setStyles] = createStore<StyleStore>({
       "inset fixed mt-12 z-[998] border-r border-r-gray-400 flex h-full w-[240px] flex-col bg-gray-300 shadow-md",
       "dark:bg-gray-900 dark:border-r-gray-800",
     ),
-  header: (pseudoClasses) =>
-    cn("flex h-12 w-full items-end border-b border-b-gray-700"),
-  headerBrand: (pseudoClasses) => cn(),
-  headerBrandLabel: (pseudoClasses) => cn(),
+  header: () => cn("flex h-12 w-full items-end border-b border-b-gray-700"),
+  headerBrand: () => cn("mb-1 ml-2 flex w-full flex-col sm:flex-row"),
+  headerBrandLabel: () => cn("mx-2 text-xs sm:ml-0 sm:text-sm lg:text-lg"),
   input: (pseudoClasses) =>
     cn(
       "rounded border border-gray-400 bg-gray-300 px-3 py-2 text-sm font-light outline-none",
