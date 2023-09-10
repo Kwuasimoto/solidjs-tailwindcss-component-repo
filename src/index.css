@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+    height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.fira-thin-italic {
+    font-family: "Fira Sans", monospace;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.fira-thin {
+    font-family: "Fira Sans", monospace;
+    font-weight: 200
+}
+
+.fira-italic {
+    font-family: "Fira Sans", monospace;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.fira {
+    font-family: "Fira Sans", monospace;
+    font-weight: 400
+}
+
+.fira-bold-italic {
+    font-family: "Fira Sans", monospace;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.fira-bold {
+    font-family: "Fira Sans", monospace;
+    font-weight: 600
+}
+
+
+.animation-open-app-menu {
+  left:0;
+  border-right: 1px solid black;
+  animation-name: animate-app-menu-open;
+  animation-duration: 600ms;
+  animation-timing-function: ease-in-out;
+}
+
+.animation-close-app-menu {
+  left: -240px;
+  border-right: 0 solid black;
+  animation-name: animate-app-menu-close;
+  animation-duration: 600ms;
+  animation-timing-function: ease-in-out;
+}
+
+.animate-app-menu-mobile {
+  width: 100%
+}
+
+@keyframes animate-app-menu-open {
+  from {
+    left: -240px;
+    border-right: 0 solid #00000000
+  }
+  to {
+    left: 0;
+    border-right: 1px solid #000000
+  }
+}
+
+@keyframes animate-app-menu-close {
+  from {
+    left: 0;
+    border-right: 1px solid #000000
+  }
+  to {
+    left: -240px;
+    border-right: 0 solid #00000000
+  }
+}
+
+/*input:-webkit-autofill {*/
+/*  -webkit-box-shadow:0 0 0 50px #030712 inset !important ; !* Change the color to your own background color *!*/
+/*  -webkit-text-fill-color: #b4bece;*/
+/*  background-color: #030712;*/
+/*  font-family: "Fira Sans", monospace;*/
+/*}*/
+/*input:-webkit-autofill:focus {*/
+/*  -webkit-box-shadow: 0 0 0 50px #030712 inset !important ;!*your box-shadow*!*/
+/*  -webkit-text-fill-color: #b4bece;*/
+/*  background-color: #030712;*/
+/*  font-family: "Fira Sans", monospace;*/
+/*}*/
+
+/*input:-webkit-autofill {*/
+/*  -webkit-box-shadow:0 0 0 50px #b4bece inset !important ; !* Change the color to your own background color *!*/
+/*  -webkit-text-fill-color: #030712;*/
+/*  background-color: #b4bece;*/
+/*  font-family: "Fira Sans", monospace;*/
+/*}*/
+
+/*input:-webkit-autofill:focus {*/
+/*  -webkit-box-shadow: 0 0 0 50px #b4bece inset !important ;!*your box-shadow*!*/
+/*  -webkit-text-fill-color: #030712;*/
+/*  background-color: #b4bece;*/
+/*  font-family: "Fira Sans", monospace;*/
+/*}*/
