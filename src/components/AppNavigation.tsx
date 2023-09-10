@@ -1,5 +1,5 @@
 import { appMenuState } from "@state";
-import { styles } from "@styles";
+import { styles } from "@style";
 import { AppNavigationProps } from "@types";
 import { Component, createSignal, onMount } from "solid-js";
 

@@ -1,8 +1,10 @@
-import { styles } from "@styles";
+import { styles } from "@style";
 import { HeaderBrandProps } from "@types";
+import { cn } from "@util";
 import { Component } from "solid-js";
-import { cn } from "../util/merge-clsx";
-import { HeaderBrandLabel } from "./HeaderBrandLabel";
+import { lazily } from "solidjs-lazily";
+
+const { HeaderBrandLabel } = lazily(() => import("./HeaderBrandLabel"));
 
 export const HeaderBrand: Component<HeaderBrandProps> = (props) => {
   return (

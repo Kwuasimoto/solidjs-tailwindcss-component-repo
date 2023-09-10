@@ -1,4 +1,4 @@
-import { styles } from "@styles";
+import { styles } from "@style";
 import { HeaderBrandLabelProps } from "@types";
 import { Component } from "solid-js";
 

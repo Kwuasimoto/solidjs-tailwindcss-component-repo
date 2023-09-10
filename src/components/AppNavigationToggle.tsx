@@ -1,8 +1,10 @@
-import { Component } from "solid-js";
-import { appMenuState } from "../state/app-menu.state";
-import { IconifyIcon } from "./IconifyIcon";
+import { appMenuState } from "@state";
 import { AppNavigationToggleProps } from "@types";
-import { cn } from "../util/merge-clsx";
+import { cn } from "@util";
+import { Component } from "solid-js";
+import { lazily } from "solidjs-lazily";
+
+const { IconifyIcon } = lazily(() => import("./IconifyIcon"));
 
 export const AppNavigationToggle: Component<AppNavigationToggleProps> = (
   props,

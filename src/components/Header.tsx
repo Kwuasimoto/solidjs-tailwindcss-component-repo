@@ -1,9 +1,10 @@
-import { styles } from "@styles";
+import { styles } from "@style";
+import { cn } from "@util";
 import { Component, JSX } from "solid-js";
-import { cn } from "../util/merge-clsx";
-import { AppNavigationToggle } from "./AppNavigationToggle";
-import { HeaderBrand } from "./HeaderBrand";
-import { StyleStateToggle } from "./StyleStateToggle";
+import { lazily } from "solidjs-lazily";
+const { AppNavigationToggle } = lazily(() => import("./AppNavigationToggle"));
+const { HeaderBrand } = lazily(() => import("./HeaderBrand"));
+const { StyleStateToggle } = lazily(() => import("./StyleStateToggle"));
 
 export const Header: Component<JSX.HTMLAttributes<any>> = (props) => {
   return (
