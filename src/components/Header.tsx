@@ -1,5 +1,5 @@
+import { styles } from "@styles";
 import { Component, JSX } from "solid-js";
-import { styles } from "../state/styles";
 import { cn } from "../util/merge-clsx";
 import { AppNavigationToggle } from "./AppNavigationToggle";
 import { HeaderBrand } from "./HeaderBrand";

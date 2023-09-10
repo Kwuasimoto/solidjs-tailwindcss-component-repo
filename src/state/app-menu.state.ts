@@ -19,7 +19,6 @@ const [appMenuState, setAppMenuState] = createStore({
 
     // Open App Menu
     else {
-      appMenu.classList.add("bg-gray-950");
       appMenu.classList.remove("hidden");
       appMenu.classList.add("animation-open-app-menu");
       appMenu.classList.remove("animation-close-app-menu");

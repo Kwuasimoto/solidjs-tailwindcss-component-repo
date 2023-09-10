@@ -1,7 +1,7 @@
-import { Component, createEffect, createSignal, JSX } from "solid-js";
 import { InputProps, StylePseudoClass } from "@types";
-import { styles } from "../state/styles";
 import { concat, without } from "lodash-es";
+import { Component, createEffect, createSignal, JSX } from "solid-js";
+import { styles } from "../styles";
 import { cn } from "../util/merge-clsx";
 
 export const TextInput: Component<InputProps> = (props) => {

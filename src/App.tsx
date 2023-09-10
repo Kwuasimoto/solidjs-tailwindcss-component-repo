@@ -1,15 +1,14 @@
+import { StyleStates } from "@types";
 import type { Component } from "solid-js";
 import { onMount } from "solid-js";
-import { styles, styleState } from "./state/styles";
-import { StyleStates } from "@types";
+import { AppNavigation } from "./components/AppNavigation";
+import { Form } from "./components/Form";
 import { Header } from "./components/Header";
-import { TextInput } from "./components/TextInput";
+import { InputControl } from "./components/InputControl";
 import { InputError } from "./components/InputError";
 import { InputLabel } from "./components/InputLabel";
-import { InputControl } from "./components/InputControl";
-import { Form } from "./components/Form";
-import { AppNavigation } from "./components/AppNavigation";
-import { cn } from "./util/merge-clsx";
+import { TextInput } from "./components/TextInput";
+import { styles, styleState } from "./styles";
 
 const componentProjectName = "text-input";
 
@@ -31,7 +30,7 @@ const App: Component = () => {
     <div id="app" class={styles.app()}>
       <Header />
 
-      <AppNavigation class={cn("fixed mt-12 h-full w-[200px] bg-gray-700")} />
+      <AppNavigation />
 
       <Form>
         <InputControl>

@@ -1,6 +1,6 @@
-import { createStore } from "solid-js/store";
-import { cn } from "../util/merge-clsx";
 import { StylePseudoClass, StyleState, StyleStates, StyleStore } from "@types";
+import { createStore } from "solid-js/store";
+import { cn } from "./util/merge-clsx";
 
 const [styleState, setStyleState] = createStore<StyleState>({
   state: StyleStates.Dark,
@@ -23,6 +23,11 @@ const [styles, setStyles] = createStore<StyleStore>({
     cn(
       "fira flex h-full flex-col bg-gray-300",
       "dark:bg-gray-900 dark:text-gray-300",
+    ),
+  appNavigation: () =>
+    cn(
+      "inset fixed mt-12 z-[998] border-r border-r-gray-400 flex h-full w-[240px] flex-col bg-gray-300 shadow-md",
+      "dark:bg-gray-900 dark:border-r-gray-800",
     ),
   header: (pseudoClasses) =>
     cn("flex h-12 w-full items-end border-b border-b-gray-700"),
@@ -52,4 +57,4 @@ const [styles, setStyles] = createStore<StyleStore>({
     ),
 });
 
-export { styles, styleState, setStyles };
+export { setStyles, styleState, styles };

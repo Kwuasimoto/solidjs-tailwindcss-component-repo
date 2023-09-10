@@ -13,7 +13,9 @@
     "isolatedModules": true,
     "paths": {
       "@types": ["./types/index.d.ts"],
-      "@styles": ["src/state/styles.ts"]
+      "@styles": ["./src/styles.ts"],
+      "@state": ["./src/state/index.ts"],
+      "@utils": ["./src/util/index.ts"]
     }
   }
 }

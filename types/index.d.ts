@@ -9,7 +9,7 @@ declare module "solid-js" {
   }
 }
 
-export type StyleStateToggleProps = JSXAttributes & {};
+export type StyleStateToggleProps = JSXAttributes;
 
 export enum StylePseudoClass {
   Hover = "hover",
@@ -31,12 +31,12 @@ export interface StyleStore {
   [key: string]: (pseudoClasses?: Accessor<StylePseudoClass[]>) => string;
 }
 
-export type AppNavigationProps = JSXAttributes & {};
-export type AppNavigationToggleProps = JSXAttributes & {};
-export type AppContainerProps = JSXAttributes & {};
+export type AppNavigationProps = JSXAttributes;
+export type AppNavigationToggleProps = JSXAttributes;
+export type AppContainerProps = JSXAttributes;
 
-export type HeaderProps = JSXAttributes & {};
-export type HeaderBrandProps = JSXAttributes & {};
+export type HeaderProps = JSXAttributes;
+export type HeaderBrandProps = JSXAttributes;
 export type HeaderBrandLabelProps = JSXAttributes & {
   label: string;
 };
@@ -61,3 +61,5 @@ export type InputErrorProps = JSXAttributes & {
 };
 
 export type IconProps = IconifyIconProps;
+
+export type TextProps = JSXAttributes;

@@ -1,6 +1,6 @@
 import { StyleStateToggleProps, StyleStates } from "@types";
 import { Component } from "solid-js";
-import { styleState } from "../state/styles";
+import { styleState } from "../styles";
 
 export const StyleStateToggle: Component<StyleStateToggleProps> = (props) => {
   return (
