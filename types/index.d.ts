@@ -63,6 +63,10 @@ export type InputProps = JSXAttributes<HTMLInputElement> & {
   path: string;
 };
 
+export type LinkProps = JSXAttributes<HTMLAnchorElement> & {
+  href: string;
+};
+
 export type InputControlProps = JSXAttributes;
 
 export type InputLabelProps = JSXAttributes<HTMLSpanElement> & {

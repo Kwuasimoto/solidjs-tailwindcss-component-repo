@@ -38,6 +38,9 @@ const [styles, setStyles] = createStore<StyleStore>({
     ),
   appNavigationToggle: () =>
     cn("ml-2 flex items-center cursor-pointer self-center text-lg lg:text-2xl"),
+  carousel: () => cn("relative h-96"),
+  carouselSlide: () =>
+    cn("absolute inset-0 h-96 opacity-0 data-[active=true]:opacity-100"),
   componentSection: () => cn("flex w-[66%] max-w-[500px] flex-col py-4"),
   componentSectionLayout: () =>
     cn("flex flex-col min-h-[100%] items-center justify-center py-4"),
@@ -64,6 +67,7 @@ const [styles, setStyles] = createStore<StyleStore>({
   inputError: () => cn("h-6 pr-1 pt-0.5 text-end text-sm text-red-700"),
   inputLabel: () => cn("pl-1 font-light"),
   inputControl: () => cn("flex w-full flex-col self-center px-4"),
+  link: () => cn("text-blue-700", "dark:text-blue-300"),
   form: () => cn("flex flex-col rounded p-4 shadow-xl lg:w-full"),
 });
 
