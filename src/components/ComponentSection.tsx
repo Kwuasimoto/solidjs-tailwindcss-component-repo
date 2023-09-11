@@ -1,7 +1,7 @@
 import { styles } from "@style";
 import { ComponentSectionProps } from "@types";
+import { cn } from "@util";
 import { Component, JSX, createSignal, onMount } from "solid-js";
-import { cn } from "../util/merge-clsx";
 
 export const ComponentSection: Component<ComponentSectionProps> = (props) => {
   const [ref, setRef] = createSignal<JSX.Element>();

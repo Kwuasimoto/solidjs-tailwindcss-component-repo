@@ -2,13 +2,19 @@ import { styleState } from "@style";
 import { StyleStates } from "@types";
 import { Component, onMount } from "solid-js";
 import { lazily } from "solidjs-lazily";
-import { AppContainer } from "./components/AppContainer";
-import { ComponentSectionLayout } from "./components/ComponentSectionLayout";
-import { FormSection } from "./components/FormSection";
 
 const { AppNavigation } = lazily(() => import("./components/AppNavigation"));
 
 const { Header } = lazily(() => import("./components/Header"));
+
+const { AppContainer } = lazily(() => import("./components/AppContainer"));
+const { CarouselSection } = lazily(
+  () => import("./components/CarouselSection"),
+);
+const { ComponentSectionLayout } = lazily(
+  () => import("./components/ComponentSectionLayout"),
+);
+const { FormSection } = lazily(() => import("./components/FormSection"));
 
 const componentProjectName = "text-input";
 
@@ -26,7 +32,6 @@ const App: Component = () => {
         window.location.reload();
       }
     }
-    
   });
 
   return (
@@ -35,6 +40,7 @@ const App: Component = () => {
       <AppNavigation />
 
       <ComponentSectionLayout>
+        <CarouselSection />
         <FormSection />
       </ComponentSectionLayout>
     </AppContainer>

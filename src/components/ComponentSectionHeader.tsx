@@ -1,7 +1,7 @@
 import { styles } from "@style";
 import { ComponentSectionHeaderProps } from "@types";
+import { cn } from "@util";
 import { Component } from "solid-js";
-import { cn } from "../util/merge-clsx";
 
 export const ComponentSectionHeader: Component<ComponentSectionHeaderProps> = (
   props,

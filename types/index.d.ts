@@ -35,6 +35,10 @@ export type AppNavigationProps = JSXAttributes;
 export type AppNavigationToggleProps = JSXAttributes;
 export type AppContainerProps = JSXAttributes;
 
+export type CarouselProps = JSXAttributes;
+export type CarouselSectionProps = JSXAttributes;
+export type CarouselItemProps = JSXAttributes;
+
 export type ComponentSectionLayoutProps = JSXAttributes;
 export type ComponentSectionProps = JSXAttributes;
 export type ComponentSectionDescriptionProps = JSXAttributes;

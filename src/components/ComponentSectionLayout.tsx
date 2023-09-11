@@ -1,7 +1,7 @@
 import { styles } from "@style";
 import { ComponentSectionLayoutProps } from "@types";
+import { cn } from "@util";
 import { Component } from "solid-js";
-import { cn } from "../util/merge-clsx";
 
 export const ComponentSectionLayout: Component<ComponentSectionLayoutProps> = (
   props,
