@@ -24,6 +24,7 @@ export enum StyleStates {
 
 export interface StyleState {
   state: StyleStates;
+  key: string;
   set: (state: StyleStates) => void;
 }
 
@@ -35,9 +36,9 @@ export type AppNavigationProps = JSXAttributes;
 export type AppNavigationToggleProps = JSXAttributes;
 export type AppContainerProps = JSXAttributes;
 
-export type CarouselProps = JSXAttributes;
+export type CarouselProps = JSXAttributes<HTMLUListElement>;
+export type CarouselItemProps = JSXAttributes<HTMLLIElement>;
 export type CarouselSectionProps = JSXAttributes;
-export type CarouselItemProps = JSXAttributes;
 
 export type ComponentSectionLayoutProps = JSXAttributes;
 export type ComponentSectionProps = JSXAttributes;
@@ -53,7 +54,7 @@ export type HeaderBrandLabelProps = JSXAttributes<HTMLSpanElement> & {
 };
 
 export interface JSXAttributes<T = HTMLDivElement>
-  extends JSX.InputHTMLAttributes<T> {
+  extends JSX.HTMLAttributes<T> {
   componentRef?: (ref: Accessor<JSX.Element>) => void;
   componentRefs?: (ref: Accessor<JSX.Element[]>) => void;
 }

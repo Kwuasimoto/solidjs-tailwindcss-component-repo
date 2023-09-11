@@ -23,7 +23,7 @@ export const FormSection: Component<FormSectionProps> = (props) => {
   return (
     <ComponentSection {...props}>
       <ComponentSectionHeader>
-        <Text>Form Example</Text>
+        <Text>Forms</Text>
       </ComponentSectionHeader>
       <ComponentSectionDescription>
         <Text>A Form that utilizes reactive state.</Text>

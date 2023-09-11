@@ -4,32 +4,27 @@ import { Component, onMount } from "solid-js";
 import { lazily } from "solidjs-lazily";
 
 const { AppNavigation } = lazily(() => import("./components/AppNavigation"));
-
-const { Header } = lazily(() => import("./components/Header"));
-
 const { AppContainer } = lazily(() => import("./components/AppContainer"));
+
 const { CarouselSection } = lazily(
   () => import("./components/CarouselSection"),
 );
 const { ComponentSectionLayout } = lazily(
   () => import("./components/ComponentSectionLayout"),
 );
-const { FormSection } = lazily(() => import("./components/FormSection"));
 
-const componentProjectName = "text-input";
+const { FormSection } = lazily(() => import("./components/FormSection"));
+const { Header } = lazily(() => import("./components/Header"));
 
 const App: Component = () => {
-  const darkModeStorageKey = `@solidjs-${componentProjectName}-dark-mode`;
-
   onMount(() => {
     const html = document.querySelector("html");
-    const darkMode = localStorage.getItem(darkModeStorageKey);
+    const darkMode = localStorage.getItem(styleState.key);
     if (html instanceof HTMLHtmlElement) {
       if (darkMode === "dark-mode") {
         styleState.set(StyleStates.Dark);
       } else {
-        localStorage.setItem(darkModeStorageKey, "dark-mode");
-        window.location.reload();
+        styleState.set(StyleStates.Light);
       }
     }
   });

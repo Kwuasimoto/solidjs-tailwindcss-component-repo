@@ -2,19 +2,24 @@ import { StylePseudoClass, StyleState, StyleStates, StyleStore } from "@types";
 import { cn } from "@util";
 import { createStore } from "solid-js/store";
 
+const componentProjectName = "components";
+
 const [styleState, setStyleState] = createStore<StyleState>({
   state: StyleStates.Dark,
+  key: `@solidjs-${componentProjectName}-dark-mode`,
   set: (state) => {
     const body = document.body;
-    const html = document.querySelector("html")
+    const html = document.querySelector("html");
     if (html instanceof HTMLHtmlElement && body instanceof HTMLBodyElement) {
-      body.classList.add("bg-gray-300", "dark:bg-gray-900")
+      body.classList.add("bg-gray-300", "dark:bg-gray-900");
       if (state === StyleStates.Dark) {
         html.classList.add("dark");
         setStyleState((prev) => ({ ...prev, state: StyleStates.Dark }));
+        localStorage.setItem(styleState.key, "dark-mode");
       } else {
         html.classList.remove("dark");
         setStyleState((prev) => ({ ...prev, state: StyleStates.Light }));
+        localStorage.setItem(styleState.key, "light-mode");
       }
     }
   },
@@ -31,13 +36,11 @@ const [styles, setStyles] = createStore<StyleStore>({
       "inset fixed mt-12 z-[998] border-r border-r-gray-400 flex h-full w-[240px] flex-col bg-gray-300 shadow-md",
       "dark:bg-gray-900 dark:border-r-gray-800",
     ),
-  appNavigationToggle: () => 
-    cn(
-      "ml-2 flex items-center cursor-pointer self-center text-lg lg:text-2xl"
-    ),
+  appNavigationToggle: () =>
+    cn("ml-2 flex items-center cursor-pointer self-center text-lg lg:text-2xl"),
   componentSection: () => cn("flex w-[66%] max-w-[500px] flex-col py-4"),
   componentSectionLayout: () =>
-    cn("flex flex-col items-center justify-center py-4"),
+    cn("flex flex-col min-h-[100%] items-center justify-center py-4"),
   componentSectionHeader: () => cn("text-lg"),
   componentSectionDescription: () => cn("text-sm font-light"),
   header: () => cn("flex h-12 w-full items-end border-b border-b-gray-700"),
