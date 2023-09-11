@@ -31,13 +31,17 @@ const [styles, setStyles] = createStore<StyleStore>({
       "inset fixed mt-12 z-[998] border-r border-r-gray-400 flex h-full w-[240px] flex-col bg-gray-300 shadow-md",
       "dark:bg-gray-900 dark:border-r-gray-800",
     ),
+  appNavigationToggle: () => 
+    cn(
+      "ml-2 flex items-center cursor-pointer self-center text-lg lg:text-2xl"
+    ),
   componentSection: () => cn("flex w-[66%] max-w-[500px] flex-col py-4"),
   componentSectionLayout: () =>
     cn("flex flex-col items-center justify-center py-4"),
   componentSectionHeader: () => cn("text-lg"),
   componentSectionDescription: () => cn("text-sm font-light"),
   header: () => cn("flex h-12 w-full items-end border-b border-b-gray-700"),
-  headerBrand: () => cn("mb-1 ml-2 flex w-full flex-col sm:flex-row"),
+  headerBrand: () => cn("ml-2 flex w-full flex-col sm:flex-row"),
   headerBrandLabel: () => cn("text-xs sm:ml-0 sm:text-sm lg:text-lg"),
   input: (pseudoClasses) =>
     cn(
@@ -56,7 +60,7 @@ const [styles, setStyles] = createStore<StyleStore>({
     ),
   inputError: () => cn("h-6 pr-1 pt-0.5 text-end text-sm text-red-700"),
   inputLabel: () => cn("pl-1 font-light"),
-  inputControl: () => cn("flex w-full flex-col self-center p-4"),
+  inputControl: () => cn("flex w-full flex-col self-center px-4"),
   form: () => cn("flex flex-col rounded p-4 shadow-xl lg:w-full"),
 });
 

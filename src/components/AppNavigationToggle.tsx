@@ -1,4 +1,5 @@
 import { appMenuState } from "@state";
+import { styles } from "@style";
 import { AppNavigationToggleProps } from "@types";
 import { cn } from "@util";
 import { Component } from "solid-js";
@@ -16,8 +17,8 @@ export const AppNavigationToggle: Component<AppNavigationToggleProps> = (
   return (
     <div
       onclick={toggleNavigationContainerElement}
-      class={cn("ml-2 cursor-pointer self-center text-lg lg:mt-1 lg:text-xl")}
       {...props}
+      class={cn(styles.appNavigationToggle(), props.class)}
     >
       <IconifyIcon icon={"material-symbols:menu"} />
     </div>

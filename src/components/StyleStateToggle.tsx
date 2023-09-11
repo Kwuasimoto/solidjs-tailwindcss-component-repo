@@ -4,7 +4,7 @@ import { Component } from "solid-js";
 
 export const StyleStateToggle: Component<StyleStateToggleProps> = (props) => {
   return (
-    <div class="mb-1 flex w-full justify-center text-sm lg:text-[1rem]">
+    <div class="flex w-full justify-center text-sm lg:text-[1rem]">
       <button
         onclick={() => {
           styleState.state === StyleStates.Light
