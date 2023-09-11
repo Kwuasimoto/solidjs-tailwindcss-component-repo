@@ -11,8 +11,8 @@ export const TextInput: Component<InputProps> = (props) => {
   const [ref, setRef] = createSignal<JSX.Element>();
 
   createEffect(() => {
-    if (ref() && props.refCallback) {
-      props.refCallback(ref);
+    if (ref() && props.componentRef) {
+      props.componentRef(ref);
     }
   });
 

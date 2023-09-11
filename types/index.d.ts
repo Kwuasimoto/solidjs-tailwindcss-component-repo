@@ -35,6 +35,13 @@ export type AppNavigationProps = JSXAttributes;
 export type AppNavigationToggleProps = JSXAttributes;
 export type AppContainerProps = JSXAttributes;
 
+export type ComponentSectionLayoutProps = JSXAttributes;
+export type ComponentSectionProps = JSXAttributes;
+export type ComponentSectionDescriptionProps = JSXAttributes;
+export type ComponentSectionHeaderProps = JSXAttributes;
+
+export type FormProps = JSXAttributes;
+
 export type HeaderProps = JSXAttributes;
 export type HeaderBrandProps = JSXAttributes;
 export type HeaderBrandLabelProps = JSXAttributes<HTMLSpanElement> & {
@@ -43,7 +50,8 @@ export type HeaderBrandLabelProps = JSXAttributes<HTMLSpanElement> & {
 
 export interface JSXAttributes<T = HTMLDivElement>
   extends JSX.InputHTMLAttributes<T> {
-  refCallback?: (ref: Accessor<JSX.Element>) => void;
+  componentRef?: (ref: Accessor<JSX.Element>) => void;
+  componentRefs?: (ref: Accessor<JSX.Element[]>) => void;
 }
 
 export type InputProps = JSXAttributes<HTMLInputElement> & {
@@ -63,3 +71,4 @@ export type InputErrorProps = JSXAttributes & {
 export type IconProps = IconifyIconProps;
 
 export type TextProps = JSXAttributes;
+export type TextInputSectionProps = JSXAttributes;

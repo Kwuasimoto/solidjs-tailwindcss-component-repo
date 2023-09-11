@@ -8,7 +8,7 @@ const { HeaderBrandLabel } = lazily(() => import("./HeaderBrandLabel"));
 
 export const HeaderBrand: Component<HeaderBrandProps> = (props) => {
   return (
-    <div class={styles.headerBrand()}>
+    <div {...props} class={cn(styles.headerBrand(), props.class)}>
       <HeaderBrandLabel label="SolidJS" />
       <span class={cn("mx-2 hidden w-[1px] bg-gray-700 sm:block")} />
       <HeaderBrandLabel label="Components" />

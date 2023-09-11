@@ -1,15 +1,14 @@
-import { styles, styleState } from "@style";
+import { styleState } from "@style";
 import { StyleStates } from "@types";
 import { Component, onMount } from "solid-js";
 import { lazily } from "solidjs-lazily";
+import { AppContainer } from "./components/AppContainer";
+import { ComponentSectionLayout } from "./components/ComponentSectionLayout";
+import { FormSection } from "./components/FormSection";
 
 const { AppNavigation } = lazily(() => import("./components/AppNavigation"));
-const { Form } = lazily(() => import("./components/Form"));
+
 const { Header } = lazily(() => import("./components/Header"));
-const { InputControl } = lazily(() => import("./components/InputControl"));
-const { InputError } = lazily(() => import("./components/InputError"));
-const { InputLabel } = lazily(() => import("./components/InputLabel"));
-const { TextInput } = lazily(() => import("./components/TextInput"));
 
 const componentProjectName = "text-input";
 
@@ -28,19 +27,14 @@ const App: Component = () => {
   });
 
   return (
-    <div id="app" class={styles.app()}>
+    <AppContainer>
       <Header />
-
       <AppNavigation />
 
-      <Form>
-        <InputControl>
-          <InputLabel label={"Enter an email"} />
-          <TextInput path={""} />
-          <InputError />
-        </InputControl>
-      </Form>
-    </div>
+      <ComponentSectionLayout>
+        <FormSection />
+      </ComponentSectionLayout>
+    </AppContainer>
   );
 };
 
