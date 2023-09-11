@@ -18,12 +18,15 @@ const App: Component = () => {
   onMount(() => {
     const html = document.querySelector("html");
     const darkMode = localStorage.getItem(darkModeStorageKey);
-    if (darkMode === "dark-mode" && html instanceof HTMLElement) {
-      styleState.set(StyleStates.Dark);
-    } else {
-      localStorage.setItem(darkModeStorageKey, "dark-mode");
-      window.location.reload();
+    if (html instanceof HTMLHtmlElement) {
+      if (darkMode === "dark-mode") {
+        styleState.set(StyleStates.Dark);
+      } else {
+        localStorage.setItem(darkModeStorageKey, "dark-mode");
+        window.location.reload();
+      }
     }
+    
   });
 
   return (

@@ -6,12 +6,14 @@ const [styleState, setStyleState] = createStore<StyleState>({
   state: StyleStates.Dark,
   set: (state) => {
     const body = document.body;
-    if (body instanceof HTMLBodyElement) {
+    const html = document.querySelector("html")
+    if (html instanceof HTMLHtmlElement && body instanceof HTMLBodyElement) {
+      body.classList.add("bg-gray-300", "dark:bg-gray-900")
       if (state === StyleStates.Dark) {
-        body.classList.add("dark");
+        html.classList.add("dark");
         setStyleState((prev) => ({ ...prev, state: StyleStates.Dark }));
       } else {
-        body.classList.remove("dark");
+        html.classList.remove("dark");
         setStyleState((prev) => ({ ...prev, state: StyleStates.Light }));
       }
     }
@@ -36,7 +38,7 @@ const [styles, setStyles] = createStore<StyleStore>({
   componentSectionDescription: () => cn("text-sm font-light"),
   header: () => cn("flex h-12 w-full items-end border-b border-b-gray-700"),
   headerBrand: () => cn("mb-1 ml-2 flex w-full flex-col sm:flex-row"),
-  headerBrandLabel: () => cn("mx-2 text-xs sm:ml-0 sm:text-sm lg:text-lg"),
+  headerBrandLabel: () => cn("text-xs sm:ml-0 sm:text-sm lg:text-lg"),
   input: (pseudoClasses) =>
     cn(
       "rounded border border-gray-400 bg-gray-300 px-3 py-2 text-sm font-light outline-none",
