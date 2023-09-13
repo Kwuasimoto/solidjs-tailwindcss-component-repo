@@ -38,14 +38,32 @@ const [styles, setStyles] = createStore<StyleStore>({
     ),
   appNavigationToggle: () =>
     cn("ml-2 flex items-center cursor-pointer self-center text-lg lg:text-2xl"),
+  button: (pseudoClasses) =>
+    cn(
+      "px-2 border border-gray-400 rounded shadow",
+      "dark:bg-gray-800 dark:border-gray-700",
+      {
+        ["border-gray-600"]:
+          pseudoClasses && pseudoClasses().includes(StylePseudoClass.Focus),
+        ["dark:border-gray-400"]:
+          pseudoClasses && pseudoClasses().includes(StylePseudoClass.Focus),
+        ["border-gray-800"]:
+          pseudoClasses && pseudoClasses().includes(StylePseudoClass.Hover),
+        ["dark:border-gray-200"]:
+          pseudoClasses && pseudoClasses().includes(StylePseudoClass.Hover),
+      },
+    ),
   carousel: () => cn("relative h-96"),
-  carouselSlide: () => cn("absolute inset-0 h-96"),
-  carouselSlideContainer: () => cn("opacity-0 data-[active=true]:opacity-100"),
+  carouselSlide: () => cn("h-96 py-2 px-4 rounded"),
+  carouselSlideContainer: () =>
+    cn(
+      "opacity-0 min-h-[100%] data-[active=true]:opacity-100 absolute inset-0 shadow-lg rounded",
+    ),
   componentSection: () => cn("flex w-[66%] max-w-[500px] flex-col py-4"),
   componentSectionLayout: () =>
     cn("flex flex-col min-h-[100%] items-center justify-center py-4"),
   componentSectionHeader: () => cn("text-lg"),
-  componentSectionDescription: () => cn("text-sm font-light"),
+  componentSectionDescription: () => cn("text-sm font-light pb-2"),
   header: () => cn("flex h-12 w-full items-end border-b border-b-gray-700"),
   headerBrand: () => cn("ml-2 flex w-full flex-col sm:flex-row"),
   headerBrandLabel: () => cn("text-xs sm:ml-0 sm:text-sm lg:text-lg"),

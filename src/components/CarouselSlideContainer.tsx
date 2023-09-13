@@ -7,11 +7,7 @@ export const CarouselSlideContainer: Component<CarouselSlideContainerProps> = (
   props,
 ) => {
   return (
-    <div
-      {...props}
-      class={cn(styles.carouselSlideContainer(), props.class)}
-      data-active={props.active()}
-    >
+    <div {...props} class={cn(styles.carouselSlideContainer(), props.class)}>
       {props.children}
     </div>
   );

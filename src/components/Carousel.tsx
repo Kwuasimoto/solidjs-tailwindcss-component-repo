@@ -1,7 +1,7 @@
 import { styles } from "@style";
 import { CarouselProps } from "@types";
 import { cn } from "@util";
-import { Component, For, createSignal } from "solid-js";
+import { Component, For } from "solid-js";
 import { lazily } from "solidjs-lazily";
 
 const { CarouselSlideContainer } = lazily(
@@ -21,13 +21,11 @@ export const Carousel: Component<CarouselProps> = (props) => {
     <ul {...props} class={cn(styles.carousel(), props.class)}>
       <For each={children}>
         {(item, index) => {
-          const [active, setActive] = createSignal(
-            index() === props.activeIndex(),
-          );
-          if (index() === props.activeIndex()) setActive(true);
-          console.log("Is Active", active());
+          // console.log("Is Active", active());
           return (
-            <CarouselSlideContainer active={active}>
+            <CarouselSlideContainer
+              data-active={index() === props.activeIndex()}
+            >
               {item}
             </CarouselSlideContainer>
           );

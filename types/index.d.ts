@@ -36,13 +36,15 @@ export type AppNavigationProps = JSXAttributes;
 export type AppNavigationToggleProps = JSXAttributes;
 export type AppContainerProps = JSXAttributes;
 
+export type ButtonProps = JSXAttributes<HTMLButtonElement>;
+
 export type CarouselProps = JSXAttributes<HTMLUListElement> & {
   activeIndex: Accessor<number>;
 };
 export type CarouselSlideProps = JSXAttributes<HTMLLIElement>;
 export type CarouselSectionProps = JSXAttributes;
 export type CarouselSlideContainerProps = JSXAttributes & {
-  active: Accessor<boolean>;
+  ["data-active"]: boolean;
 };
 
 export type ComponentSectionLayoutProps = JSXAttributes;
