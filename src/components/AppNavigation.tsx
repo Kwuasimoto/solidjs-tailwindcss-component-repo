@@ -8,9 +8,7 @@ export const AppNavigation: Component<AppNavigationProps> = (props) => {
 
   onMount(() => {
     window.addEventListener("scroll", () => {
-      console.log("Scroll", window.scrollY);
       const container = containerRef();
-
       if (container) {
         if (window.scrollY <= 48) {
           container.style.marginTop = `${48 - window.scrollY}px`;

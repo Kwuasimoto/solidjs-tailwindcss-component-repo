@@ -36,9 +36,14 @@ export type AppNavigationProps = JSXAttributes;
 export type AppNavigationToggleProps = JSXAttributes;
 export type AppContainerProps = JSXAttributes;
 
-export type CarouselProps = JSXAttributes<HTMLUListElement>;
-export type CarouselItemProps = JSXAttributes<HTMLLIElement>;
+export type CarouselProps = JSXAttributes<HTMLUListElement> & {
+  activeIndex: Accessor<number>;
+};
+export type CarouselSlideProps = JSXAttributes<HTMLLIElement>;
 export type CarouselSectionProps = JSXAttributes;
+export type CarouselSlideContainerProps = JSXAttributes & {
+  active: Accessor<boolean>;
+};
 
 export type ComponentSectionLayoutProps = JSXAttributes;
 export type ComponentSectionProps = JSXAttributes;

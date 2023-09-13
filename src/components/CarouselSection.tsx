@@ -29,8 +29,8 @@ export const CarouselSection: Component<CarouselSectionProps> = (props) => {
           </Link>
         </Text>
       </ComponentSectionDescription>
-      <Carousel>
-        <CarouselSlide data-active>Slide A</CarouselSlide>
+      <Carousel activeIndex={() => 0}>
+        <CarouselSlide>Slide A</CarouselSlide>
         <CarouselSlide>Slide B</CarouselSlide>
         <CarouselSlide>Slide C</CarouselSlide>
       </Carousel>

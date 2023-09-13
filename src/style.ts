@@ -39,8 +39,8 @@ const [styles, setStyles] = createStore<StyleStore>({
   appNavigationToggle: () =>
     cn("ml-2 flex items-center cursor-pointer self-center text-lg lg:text-2xl"),
   carousel: () => cn("relative h-96"),
-  carouselSlide: () =>
-    cn("absolute inset-0 h-96 opacity-0 data-[active=true]:opacity-100"),
+  carouselSlide: () => cn("absolute inset-0 h-96"),
+  carouselSlideContainer: () => cn("opacity-0 data-[active=true]:opacity-100"),
   componentSection: () => cn("flex w-[66%] max-w-[500px] flex-col py-4"),
   componentSectionLayout: () =>
     cn("flex flex-col min-h-[100%] items-center justify-center py-4"),
