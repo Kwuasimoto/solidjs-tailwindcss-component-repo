@@ -2,11 +2,6 @@ import { styles } from "@style";
 import { CarouselProps } from "@types";
 import { cn } from "@util";
 import { Component, For } from "solid-js";
-import { lazily } from "solidjs-lazily";
-
-const { CarouselSlideContainer } = lazily(
-  () => import("./CarouselSlideContainer"),
-);
 
 /**
  * Each carousel will have n number of child elements, these are suspected to be
@@ -21,13 +16,13 @@ export const Carousel: Component<CarouselProps> = (props) => {
     <ul {...props} class={cn(styles.carousel(), props.class)}>
       <For each={children}>
         {(item, index) => {
-          // console.log("Is Active", active());
           return (
-            <CarouselSlideContainer
+            <li
+              class={cn(styles.carouselSlideContainer())}
               data-active={index() === props.activeIndex()}
             >
               {item}
-            </CarouselSlideContainer>
+            </li>
           );
         }}
       </For>

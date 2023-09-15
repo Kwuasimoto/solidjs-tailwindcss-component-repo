@@ -5,8 +5,8 @@ import { Component } from "solid-js";
 
 export const CarouselSlide: Component<CarouselSlideProps> = (props) => {
   return (
-    <li {...props} class={cn(styles.carouselSlide(), props.class)}>
+    <div {...props} class={cn(styles.carouselSlide(), props.class)}>
       {props.children}
-    </li>
+    </div>
   );
 };

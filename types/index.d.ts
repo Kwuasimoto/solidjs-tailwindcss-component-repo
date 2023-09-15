@@ -41,7 +41,7 @@ export type ButtonProps = JSXAttributes<HTMLButtonElement>;
 export type CarouselProps = JSXAttributes<HTMLUListElement> & {
   activeIndex: Accessor<number>;
 };
-export type CarouselSlideProps = JSXAttributes<HTMLLIElement>;
+export type CarouselSlideProps = JSXAttributes<HTMLDivElement>;
 export type CarouselSectionProps = JSXAttributes;
 export type CarouselSlideContainerProps = JSXAttributes & {
   ["data-active"]: boolean;

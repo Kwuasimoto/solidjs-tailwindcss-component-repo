@@ -2,11 +2,11 @@ import { StylePseudoClass, StyleState, StyleStates, StyleStore } from "@types";
 import { cn } from "@util";
 import { createStore } from "solid-js/store";
 
-const componentProjectName = "components";
+const projectName = "components";
 
 const [styleState, setStyleState] = createStore<StyleState>({
   state: StyleStates.Dark,
-  key: `@solidjs-${componentProjectName}-dark-mode`,
+  key: `@solidjs-${projectName}-dark-mode`,
   set: (state) => {
     const body = document.body;
     const html = document.querySelector("html");
