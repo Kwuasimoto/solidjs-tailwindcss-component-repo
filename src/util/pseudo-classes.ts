@@ -19,7 +19,7 @@ export const usePseudoClasses = (
             setPseudoClasses((prev) => [...without(prev, PseudoClass.Hover)]);
           });
         }
-        if (cls === PseudoClass.Hover) {
+        if (cls === PseudoClass.Focus) {
           element.addEventListener("focusin", () => {
             setPseudoClasses((prev) => [...concat(prev, PseudoClass.Focus)]);
           });
