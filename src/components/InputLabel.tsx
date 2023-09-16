@@ -4,8 +4,8 @@ import { Component } from "solid-js";
 
 export const InputLabel: Component<InputLabelProps> = (props) => {
   return (
-    <span class={styles.inputLabel()} {...props}>
+    <label class={styles.inputLabel()} {...props}>
       {props.label}
-    </span>
+    </label>
   );
 };

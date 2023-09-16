@@ -11,7 +11,7 @@ declare module "solid-js" {
 
 export type StyleStateToggleProps = JSXAttributes;
 
-export enum StylePseudoClass {
+export enum PseudoClass {
   Hover = "hover",
   Active = "active",
   Focus = "focus",
@@ -29,7 +29,7 @@ export interface StyleState {
 }
 
 export interface StyleStore {
-  [key: string]: (pseudoClasses?: Accessor<StylePseudoClass[]>) => string;
+  [key: string]: (pseudoClasses?: Accessor<PseudoClass[]>) => string;
 }
 
 export type AppNavigationProps = JSXAttributes;
@@ -53,6 +53,15 @@ export type ComponentSectionDescriptionProps = JSXAttributes;
 export type ComponentSectionHeaderProps = JSXAttributes;
 
 export type FormProps = JSXAttributes;
+export type FileInputProps = JSXAttributes<HTMLDivElement> & {
+  accept?: string;
+  defaultLabel?: boolean;
+  fileInputLabelProps?: FileInputLabelProps;
+};
+export type FileInputLabelProps = JSXAttributes<HTMLLabelElement> & {
+  showLabelText?: boolean;
+  showLabelIcon?: boolean;
+};
 
 export type HeaderProps = JSXAttributes;
 export type HeaderBrandProps = JSXAttributes;
@@ -60,8 +69,7 @@ export type HeaderBrandLabelProps = JSXAttributes<HTMLSpanElement> & {
   label: string;
 };
 
-export interface JSXAttributes<T = HTMLDivElement>
-  extends JSX.HTMLAttributes<T> {
+export interface JSXAttributes<T = HTMLElement> extends JSX.HTMLAttributes<T> {
   componentRef?: (ref: Accessor<JSX.Element>) => void;
   componentRefs?: (ref: Accessor<JSX.Element[]>) => void;
 }
@@ -76,7 +84,7 @@ export type LinkProps = JSXAttributes<HTMLAnchorElement> & {
 
 export type InputControlProps = JSXAttributes;
 
-export type InputLabelProps = JSXAttributes<HTMLSpanElement> & {
+export type InputLabelProps = JSXAttributes<HTMLLabelElement> & {
   label: string;
 };
 
@@ -85,6 +93,8 @@ export type InputErrorProps = JSXAttributes & {
 };
 
 export type IconProps = IconifyIconProps;
+
+export type TableSectionProps = JSXAttributes;
 
 export type TextProps = JSXAttributes;
 export type TextInputSectionProps = JSXAttributes;

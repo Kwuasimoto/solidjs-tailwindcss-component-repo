@@ -1,4 +1,4 @@
-import { StylePseudoClass, StyleState, StyleStates, StyleStore } from "@types";
+import { PseudoClass, StyleState, StyleStates, StyleStore } from "@types";
 import { cn } from "@util";
 import { createStore } from "solid-js/store";
 
@@ -44,13 +44,13 @@ const [styles, setStyles] = createStore<StyleStore>({
       "dark:bg-gray-800 dark:border-gray-700",
       {
         ["border-gray-600"]:
-          pseudoClasses && pseudoClasses().includes(StylePseudoClass.Focus),
+          pseudoClasses && pseudoClasses().includes(PseudoClass.Focus),
         ["dark:border-gray-400"]:
-          pseudoClasses && pseudoClasses().includes(StylePseudoClass.Focus),
+          pseudoClasses && pseudoClasses().includes(PseudoClass.Focus),
         ["border-gray-800"]:
-          pseudoClasses && pseudoClasses().includes(StylePseudoClass.Hover),
+          pseudoClasses && pseudoClasses().includes(PseudoClass.Hover),
         ["dark:border-gray-200"]:
-          pseudoClasses && pseudoClasses().includes(StylePseudoClass.Hover),
+          pseudoClasses && pseudoClasses().includes(PseudoClass.Hover),
       },
     ),
   carousel: () => cn("relative h-96"),
@@ -73,19 +73,36 @@ const [styles, setStyles] = createStore<StyleStore>({
       "dark:bg-gray-800 dark:border-gray-700",
       {
         ["border-gray-600"]:
-          pseudoClasses && pseudoClasses().includes(StylePseudoClass.Focus),
+          pseudoClasses && pseudoClasses().includes(PseudoClass.Focus),
         ["dark:border-gray-400"]:
-          pseudoClasses && pseudoClasses().includes(StylePseudoClass.Focus),
+          pseudoClasses && pseudoClasses().includes(PseudoClass.Focus),
         ["border-gray-800"]:
-          pseudoClasses && pseudoClasses().includes(StylePseudoClass.Hover),
+          pseudoClasses && pseudoClasses().includes(PseudoClass.Hover),
         ["dark:border-gray-200"]:
-          pseudoClasses && pseudoClasses().includes(StylePseudoClass.Hover),
+          pseudoClasses && pseudoClasses().includes(PseudoClass.Hover),
       },
     ),
   inputError: () => cn("h-6 pr-1 pt-0.5 text-end text-sm text-red-700"),
   inputLabel: () => cn("pl-1 font-light"),
   inputControl: () => cn("flex w-full flex-col self-center px-4"),
   link: () => cn("text-blue-700", "dark:text-blue-300"),
+  fileInput: (pseudoClasses) =>
+    cn(
+      "rounded border border-gray-400 bg-gray-300 px-3 py-2 text-sm font-light outline-none",
+      "dark:bg-gray-800 dark:border-gray-700",
+      {
+        ["border-gray-600"]:
+          pseudoClasses && pseudoClasses().includes(PseudoClass.Focus),
+        ["dark:border-gray-400"]:
+          pseudoClasses && pseudoClasses().includes(PseudoClass.Focus),
+        ["border-gray-800"]:
+          pseudoClasses && pseudoClasses().includes(PseudoClass.Hover),
+        ["dark:border-gray-200"]:
+          pseudoClasses && pseudoClasses().includes(PseudoClass.Hover),
+      },
+    ),
+  fileInputLabel: () => cn("flex items-center justify-between"),
+  fileInputLabelFallback: () => cn("flex items-center justify-end"),
   form: () => cn("flex flex-col rounded p-4 shadow-xl lg:w-full"),
 });
 

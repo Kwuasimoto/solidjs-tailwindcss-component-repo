@@ -1,6 +1,7 @@
 import { JSXAttributes } from "@types";
 import { Component } from "solid-js";
 import { lazily } from "solidjs-lazily";
+import { FileInput } from "./FileInput";
 
 const { Form } = lazily(() => import("./Form"));
 const { InputControl } = lazily(() => import("./InputControl"));
@@ -42,6 +43,11 @@ export const FormSection: Component<FormSectionProps> = (props) => {
         <InputControl>
           <InputLabel label={"Password"} />
           <TextInput path={""} />
+          <InputError />
+        </InputControl>
+        <InputControl>
+          <InputLabel label={"File Input"} />
+          <FileInput />
           <InputError />
         </InputControl>
       </Form>

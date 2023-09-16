@@ -12,6 +12,7 @@ const { CarouselSection } = lazily(
 const { ComponentSectionLayout } = lazily(
   () => import("./components/ComponentSectionLayout"),
 );
+const { TableSection } = lazily(() => import("./components/TableSection"));
 
 const { FormSection } = lazily(() => import("./components/FormSection"));
 const { Header } = lazily(() => import("./components/Header"));
@@ -37,6 +38,7 @@ const App: Component = () => {
       <ComponentSectionLayout>
         <CarouselSection />
         <FormSection />
+        <TableSection />
       </ComponentSectionLayout>
     </AppContainer>
   );
