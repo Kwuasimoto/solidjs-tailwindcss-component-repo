@@ -3,10 +3,6 @@ import { fileInputDelegator } from "@util";
 import { chunk } from "lodash-es";
 import { Component, For, createSignal } from "solid-js";
 import { lazily } from "solidjs-lazily";
-import { Table } from "./Table";
-import { TableData } from "./TableData";
-import { TableHeader } from "./TableHeader";
-import { TableRow } from "./TableRow";
 
 const { ComponentSection } = lazily(() => import("./ComponentSection"));
 const { ComponentSectionDescription } = lazily(
@@ -15,8 +11,15 @@ const { ComponentSectionDescription } = lazily(
 const { ComponentSectionHeader } = lazily(
   () => import("./ComponentSectionHeader"),
 );
-const { Text } = lazily(() => import("./Text"));
 const { FileInput } = lazily(() => import("./FileInput"));
+
+const { Table } = lazily(() => import("./Table"));
+const { TableHeader } = lazily(() => import("./TableHeader"));
+const { TableHeaderRow } = lazily(() => import("./TableHeaderRow"));
+const { TableData } = lazily(() => import("./TableData"));
+const { TableDataRow } = lazily(() => import("./TableDataRow"));
+
+const { Text } = lazily(() => import("./Text"));
 
 export const TableSection: Component<TableSectionProps> = (props) => {
   const [headers, setHeaders] = createSignal<string[]>([]);
@@ -45,24 +48,24 @@ export const TableSection: Component<TableSectionProps> = (props) => {
         })}
       />
       <Table>
-        <TableRow>
+        <TableHeaderRow>
           <For each={headers()}>
             {(header) => {
               return <TableHeader>{header}</TableHeader>;
             }}
           </For>
-        </TableRow>
+        </TableHeaderRow>
         <For each={chunks()[page()]}>
           {(chunkData, chunkDataIndex) => {
             console.log("Chunk Data", chunkData);
             return (
-              <TableRow>
+              <TableDataRow>
                 <For each={Object.entries(chunkData)}>
                   {([k, v]) => {
                     return <TableData>{v}</TableData>;
                   }}
                 </For>
-              </TableRow>
+              </TableDataRow>
             );
           }}
         </For>

@@ -102,10 +102,10 @@ export type IconProps = IconifyIconProps;
 
 export type TableSectionProps = JSXAttributes;
 export type TableProps = JSXAttributes<HTMLTableElement>;
-export type TableRowProps = JSXAttributes<HTMLTableRowElement>;
-export type TableHeaderContainerProps = JSXAttributes<HTMLTableRowElement>;
+export type TableHeaderRowProps = JSXAttributes<HTMLTableRowElement>;
 export type TableHeaderProps = JSXAttributes<HTMLTableCellElement>;
 export type TableDataProps = JSXAttributes<HTMLTableCellElement>;
+export type TableDataRowProps = JSXAttributes<HTMLTableRowElement>;
 
 export type TextProps = JSXAttributes;
 export type TextInputSectionProps = JSXAttributes;
