@@ -1,9 +1,8 @@
 import { styles } from "@style";
 import { FileInputProps, PseudoClass } from "@types";
+import { cn, usePseudoClasses } from "@util";
 import { Component, JSX, Show, createSignal } from "solid-js";
 import { lazily } from "solidjs-lazily";
-import { cn } from "../util/merge-clsx";
-import { usePseudoClasses } from "../util/pseudo-classes";
 
 const { FileInputLabel } = lazily(() => import("./FileInputLabel"));
 // const { FileInputLabelFallback } = lazily(
@@ -16,12 +15,12 @@ export const FileInput: Component<FileInputProps> = (props) => {
     [PseudoClass.Hover, PseudoClass.Focus],
     fileInputRef,
   );
-  const [inputFiles, setInputFiles] = createSignal<File[]>();
-  const handleFileInput: JSX.EventHandlerUnion<
-    HTMLDivElement,
-    MouseEvent
-  > = () => {
-    fileInputRef()?.click();
+  const handleFileInput: JSX.EventHandlerUnion<HTMLDivElement, MouseEvent> = (
+    e,
+  ) => {
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    fileInputRef()?.querySelector("input")?.click();
   };
   return (
     <div
@@ -34,7 +33,12 @@ export const FileInput: Component<FileInputProps> = (props) => {
         when={props.defaultLabel === false ? false : true}
         children={<FileInputLabel {...props.fileInputLabelProps} />}
       />
-      <input id="file-input" class="h-full w-full" type="file" hidden />
+      <input
+        onchange={props.onFileChange}
+        class="h-full w-full"
+        type="file"
+        hidden
+      />
     </div>
   );
 };

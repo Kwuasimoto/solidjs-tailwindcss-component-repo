@@ -1,23 +1,25 @@
 import { styles } from "@style";
 import { FileInputLabelProps } from "@types";
 import { cn } from "@util";
-import { Component, JSX, Show } from "solid-js";
+import { Component, JSX, Show, createSignal } from "solid-js";
 import { lazily } from "solidjs-lazily";
 
 const { IconifyIcon } = lazily(() => import("./IconifyIcon"));
 
 export const FileInputLabel: Component<FileInputLabelProps> = (props) => {
+  const [labelRef, setLabelRef] = createSignal<HTMLLabelElement>();
   const handleFileInputLabelEventPropagation: JSX.EventHandlerUnion<
     HTMLLabelElement,
     MouseEvent
   > = (e) => {
     e.stopPropagation();
     e.stopImmediatePropagation();
+    labelRef()?.parentNode?.querySelector("input")?.click();
   };
   return (
     <label
       {...props}
-      for="file-input"
+      ref={setLabelRef}
       class={cn(styles.fileInputLabel())}
       onclick={handleFileInputLabelEventPropagation}
     >

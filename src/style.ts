@@ -1,5 +1,6 @@
 import { PseudoClass, StyleState, StyleStates, StyleStore } from "@types";
 import { cn } from "@util";
+import { Accessor } from "solid-js";
 import { createStore } from "solid-js/store";
 
 const projectName = "components";
@@ -25,6 +26,19 @@ const [styleState, setStyleState] = createStore<StyleState>({
   },
 });
 
+const basePseudoStyles = (pseudoClasses?: Accessor<PseudoClass[]>) => {
+  return {
+    ["border-gray-600"]:
+      pseudoClasses && pseudoClasses().includes(PseudoClass.Focus),
+    ["dark:border-gray-400"]:
+      pseudoClasses && pseudoClasses().includes(PseudoClass.Focus),
+    ["border-gray-800"]:
+      pseudoClasses && pseudoClasses().includes(PseudoClass.Hover),
+    ["dark:border-gray-200"]:
+      pseudoClasses && pseudoClasses().includes(PseudoClass.Hover),
+  };
+};
+
 const [styles, setStyles] = createStore<StyleStore>({
   app: () =>
     cn(
@@ -42,16 +56,7 @@ const [styles, setStyles] = createStore<StyleStore>({
     cn(
       "px-2 border border-gray-400 rounded shadow",
       "dark:bg-gray-800 dark:border-gray-700",
-      {
-        ["border-gray-600"]:
-          pseudoClasses && pseudoClasses().includes(PseudoClass.Focus),
-        ["dark:border-gray-400"]:
-          pseudoClasses && pseudoClasses().includes(PseudoClass.Focus),
-        ["border-gray-800"]:
-          pseudoClasses && pseudoClasses().includes(PseudoClass.Hover),
-        ["dark:border-gray-200"]:
-          pseudoClasses && pseudoClasses().includes(PseudoClass.Hover),
-      },
+      basePseudoStyles(pseudoClasses),
     ),
   carousel: () => cn("relative h-96"),
   carouselSlide: () => cn("h-96 py-2 px-4 rounded"),
@@ -59,7 +64,8 @@ const [styles, setStyles] = createStore<StyleStore>({
     cn(
       "opacity-0 min-h-[100%] data-[active=true]:opacity-100 absolute inset-0 shadow-lg rounded",
     ),
-  componentSection: () => cn("flex w-[66%] max-w-[500px] flex-col py-4"),
+  componentSection: () =>
+    cn("flex w-[66%] max-w-[500px] flex-col py-4 overflow-x-auto"),
   componentSectionLayout: () =>
     cn("flex flex-col min-h-[100%] items-center justify-center py-4"),
   componentSectionHeader: () => cn("text-lg"),
@@ -71,16 +77,7 @@ const [styles, setStyles] = createStore<StyleStore>({
     cn(
       "rounded border border-gray-400 bg-gray-300 px-3 py-2 text-sm font-light outline-none",
       "dark:bg-gray-800 dark:border-gray-700",
-      {
-        ["border-gray-600"]:
-          pseudoClasses && pseudoClasses().includes(PseudoClass.Focus),
-        ["dark:border-gray-400"]:
-          pseudoClasses && pseudoClasses().includes(PseudoClass.Focus),
-        ["border-gray-800"]:
-          pseudoClasses && pseudoClasses().includes(PseudoClass.Hover),
-        ["dark:border-gray-200"]:
-          pseudoClasses && pseudoClasses().includes(PseudoClass.Hover),
-      },
+      basePseudoStyles(pseudoClasses),
     ),
   inputError: () => cn("h-6 pr-1 pt-0.5 text-end text-sm text-red-700"),
   inputLabel: () => cn("pl-1 font-light"),
@@ -90,20 +87,12 @@ const [styles, setStyles] = createStore<StyleStore>({
     cn(
       "rounded border border-gray-400 bg-gray-300 px-3 py-2 text-sm font-light outline-none",
       "dark:bg-gray-800 dark:border-gray-700",
-      {
-        ["border-gray-600"]:
-          pseudoClasses && pseudoClasses().includes(PseudoClass.Focus),
-        ["dark:border-gray-400"]:
-          pseudoClasses && pseudoClasses().includes(PseudoClass.Focus),
-        ["border-gray-800"]:
-          pseudoClasses && pseudoClasses().includes(PseudoClass.Hover),
-        ["dark:border-gray-200"]:
-          pseudoClasses && pseudoClasses().includes(PseudoClass.Hover),
-      },
+      basePseudoStyles(pseudoClasses),
     ),
   fileInputLabel: () => cn("flex items-center justify-between"),
   fileInputLabelFallback: () => cn("flex items-center justify-end"),
   form: () => cn("flex flex-col rounded p-4 shadow-xl lg:w-full"),
+  table: () => cn("max-h-[500px] min-h-[300px] shadow-xl overflow-y-auto"),
 });
 
 export { setStyles, styleState, styles };

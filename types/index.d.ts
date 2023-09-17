@@ -11,6 +11,10 @@ declare module "solid-js" {
 
 export type StyleStateToggleProps = JSXAttributes;
 
+export enum FileTypes {
+  CSV = "text/csv",
+}
+
 export enum PseudoClass {
   Hover = "hover",
   Active = "active",
@@ -57,6 +61,7 @@ export type FileInputProps = JSXAttributes<HTMLDivElement> & {
   accept?: string;
   defaultLabel?: boolean;
   fileInputLabelProps?: FileInputLabelProps;
+  onFileChange?: JSX.ChangeEventHandlerUnion<HTMLInputElement, Event>;
 };
 export type FileInputLabelProps = JSXAttributes<HTMLLabelElement> & {
   showLabelText?: boolean;
@@ -69,7 +74,8 @@ export type HeaderBrandLabelProps = JSXAttributes<HTMLSpanElement> & {
   label: string;
 };
 
-export interface JSXAttributes<T = HTMLElement> extends JSX.HTMLAttributes<T> {
+export interface JSXAttributes<T extends HTMLElement = HTMLElement>
+  extends JSX.HTMLAttributes<T> {
   componentRef?: (ref: Accessor<JSX.Element>) => void;
   componentRefs?: (ref: Accessor<JSX.Element[]>) => void;
 }
@@ -95,6 +101,11 @@ export type InputErrorProps = JSXAttributes & {
 export type IconProps = IconifyIconProps;
 
 export type TableSectionProps = JSXAttributes;
+export type TableProps = JSXAttributes<HTMLTableElement>;
+export type TableRowProps = JSXAttributes<HTMLTableRowElement>;
+export type TableHeaderContainerProps = JSXAttributes<HTMLTableRowElement>;
+export type TableHeaderProps = JSXAttributes<HTMLTableCellElement>;
+export type TableDataProps = JSXAttributes<HTMLTableCellElement>;
 
 export type TextProps = JSXAttributes;
 export type TextInputSectionProps = JSXAttributes;
