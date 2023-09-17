@@ -56,8 +56,7 @@ export const TableSection: Component<TableSectionProps> = (props) => {
           </For>
         </TableHeaderRow>
         <For each={chunks()[page()]}>
-          {(chunkData, chunkDataIndex) => {
-            console.log("Chunk Data", chunkData);
+          {(chunkData) => {
             return (
               <TableDataRow>
                 <For each={Object.entries(chunkData)}>
